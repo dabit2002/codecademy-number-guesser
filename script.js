@@ -12,31 +12,25 @@ const compareGuesses = (humanN,computerN,secretN = generateTarget()) => {
   let sumCS = secretN -computerN;
   console.log(sumHS, sumCS, secretN);
   const diffN = (x=sumHS, y=sumCS) => {
-     if ((x < 0) && (y < 0)){
-      sumCS *= -1;
+     if (y < 0){
+     sumCS *= -1;
+    } if (x < 0){
       sumHS *= -1;
-      return sumCS;
-      return sumHS;
-    } else if (y < 0){
-      return sumCS *= -1;
-    } else if (x < 0){
-      return sumHS *= -1;
     }
   };
+
   diffN();
-  console.log(sumHS);
-  console.log(sumCS);
+  
     if (sumCS < sumHS){
       return winner = false;
     } return winner = true;
-    };
+};
 const updateScore = (x = winner) => {
-  if (x == false){
+  if (!x){
     return humanScore += 1;
-  } else if (x ==  true){
-    return computerScore += 1;
-  }
+  } return computerScore += 1;
 };
 const advanceRound = () => {
   return currentRoundNumber += 1;
 };
+
